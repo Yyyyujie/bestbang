@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>联系我们</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/paging.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<body id="newList" style="position: relative;height: auto;">
+<div class="bigBox">
+    <div class="main">
+        <p class="title">联系我们</p>
+        <div class="title-p1"></div>
+        <p>生活不止眼前的苟且还有诗和远方</p>
+        <div class="callBox">
+            <li>
+                <div class="icoBox">
+                    <div class="ico">
+                        <img src="images/address.png" alt="">
+                    </div>
+                </div>
+
+                <p class="ad-zi">太原市高新电商产业园</p>
+                <p>In my mind, everyone shall have his own dream.
+                    that having a dream</p>
+            </li>
+            <li>
+                <div class="icoBox">
+                    <div class="ico">
+                        <img src="images/phone.png" alt="">
+                    </div>
+                </div>
+                <p class="ad-zi">010-2783516     400-2819-900
+                </p>
+                <p>In my mind, everyone shall have his own dream.
+                    that having a dream</p>
+            </li>
+            <li>
+                <div class="icoBox">
+                    <div class="ico">
+                        <img src="images/email.png" alt="" style="width: 100%;">
+                    </div>
+                </div>
+                <p class="ad-zi">www.888888@qq.com
+                </p>
+                <p>In my mind, everyone shall have his own dream.
+                    that having a dream</p>
+            </li>
+        </div>
+        <div class="map" id="map">
+        </div>
+
+       <!-- <div class="yuansu2">
+            <img src="images/yuansu.png" alt="">
+        </div>-->
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-main">
+        <div class="footer-left">
+            <h3>BESTBANG百事帮</h3>
+            <p class="callme">请联系我们</p>
+            <p>电话：88888-8888</p>
+            <p>邮箱：8888888@qq.com</p>
+            <p>地址：山西省太原市高新电商产业园1006</p>
+        </div>
+        <div class="footer-right">
+            <p>太原市公安局小店分局备案编号:</p>
+            <p> <span> Copyright</span> <span class="mid">©</span> <span>2013-2017  DREAM</span></p>
+        </div>
+    </div>
+</div>
+<div class="banner">
+    <img src="images/banner.webp" alt="">
+</div>
+<div class="navBox">
+    <div class="logo"></div>
+    <div class="nav nav1">
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="boCar.html">智慧泊车</a></li>
+            <li><a href="#">下载应用</a></li>
+            <li><a href="newsList.html">新闻资讯</a></li>
+            <li><a href="contact.html">联系我们</a>
+                <div class="nav-tip"></div>
+            </li>
+            <div class="nav-top"></div>
+        </ul>
+    </div>
+    <div class="nav nav2">
+        <ul>
+            <li><a href="index.html">首页</a>
+            </li>
+            <li><a href="boCar.html">智慧泊车</a></li>
+            <li><a href="">下载应用</a></li>
+            <div class="nav-top"></div>
+        </ul>
+        <div class="humbuger">
+            <li></li>
+            <li></li>
+            <li></li>
+            <div class="div">
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="newsList.html">新闻资讯</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.page.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=0XCvorbvZGBSlbPjHIHuR57GO7TZBSgr"></script>
+<script src="js/index.js"></script>
+<script>
+    // 新闻列表页的分页器
+    $(".tcdPageCode").createPage({
+        pageCount:6,
+        current:1,
+        backFn:function(p){
+            console.log(p);
+        }
+    });
+$(function () {
+//    百度地图接口
+    var map = new BMap.Map("map");
+    var point = new BMap.Point(112.564479,37.789309);
+    var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角，仅包含平移和缩放按钮
+    map.centerAndZoom(point, 15);
+/*    map.enableScrollWheelZoom(false);//鼠标滚轮缩放*/
+    map.addControl(top_right_navigation);
+    var marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker);               // 将标注添加到地图中
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    window.setTimeout(function(){
+        map.panTo(new BMap.Point(112.564479,37.789309));
+    }, 2000);
+
+    var opts = {
+        width : 200,     // 信息窗口宽度
+        height: 100,     // 信息窗口高度
+        title : "山西百事帮BESTBANG" , // 信息窗口标题
+        enableMessage:true,//设置允许信息窗发送短息
+        message:"联系地址"
+    }
+    var infoWindow = new BMap.InfoWindow("地址：太原市高新电商产业园A座10层", opts);  // 创建信息窗口对象
+    marker.addEventListener("click", function(){
+        map.openInfoWindow(infoWindow,point); //开启信息窗口
+    });
+})
+
+    function isIE() { //ie?
+        if (!!window.ActiveXObject || "ActiveXObject" in window)
+        {//是ie
+            $(".banner").empty();
+            $(".banner").append('  <img src="images/banner.png" alt="">')
+        }
+        else{
+//不是ie
+        }
+
+    }
+    isIE();
+
+    $(function () {
+        var scHeight=$(window).height();
+        $(".banner").css("height",scHeight)
+    })
+</script>
+</html>

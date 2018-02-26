@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>智慧泊车</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/paging.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<body id="newList" style="position: relative;height: auto;">
+<div class="bigBox">
+    <div class="main">
+        <p class="title">智慧泊车</p>
+        <div class="title-p3"></div>
+        <p>生活不止眼前的苟且还有诗和远方</p>
+        <div class="carTitle">
+            <p>平台架构</p>
+        </div>
+        <div class="imgCon">
+            <img src="images/car1.jpg" alt="">
+        </div>
+        <div class="carTitle">
+            <p>核心功能</p>
+        </div>
+        <div class="imgCon">
+            <img src="images/car2.jpg" alt="" style="width:80%;">
+        </div>
+        <div class="carTitle">
+            <p>技术运用</p>
+        </div>
+        <div class="imgCon">
+            <img src="images/car3.jpg" alt="">
+        </div>
+        <div class="carTitle">
+            <p>价值体现</p>
+        </div>
+        <div class="imgCon">
+            <img src="images/car4.jpg" alt="">
+        </div>
+
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-main">
+        <div class="footer-left">
+            <h3>BESTBANG百事帮</h3>
+            <p class="callme">请联系我们</p>
+            <p>电话：88888-8888</p>
+            <p>邮箱：8888888@qq.com</p>
+            <p>地址：山西省太原市高新电商产业园1006</p>
+        </div>
+        <div class="footer-right">
+            <p>太原市公安局小店分局备案编号:</p>
+            <p> <span> Copyright</span> <span class="mid">©</span> <span>2013-2017  DREAM</span></p>
+        </div>
+    </div>
+</div>
+<div class="banner">
+    <img src="images/banner.webp" alt="">
+</div>
+<div class="navBox">
+    <div class="logo"></div>
+    <div class="nav nav1">
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="boCar.html">智慧泊车</a>
+                <div class="nav-tip"></div>
+            </li>
+            <li><a href="#">下载应用</a></li>
+            <li><a href="newsList.html">新闻资讯</a></li>
+            <li><a href="contact.html">联系我们</a></li>
+            <div class="nav-top"></div>
+        </ul>
+    </div>
+    <div class="nav nav2">
+        <ul>
+            <li><a href="index.html">首页</a>
+            </li>
+            <li><a href="boCar.html">智慧泊车</a>
+                <div class="nav-tip"></div>
+            </li>
+            <li><a href="">下载应用</a></li>
+            <div class="nav-top"></div>
+        </ul>
+        <div class="humbuger">
+            <li></li>
+            <li></li>
+            <li></li>
+            <div class="div">
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="newsList.html">新闻资讯</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.page.js"></script>
+<script src="js/index.js"></script>
+<script>
+    // 新闻列表页的分页器
+    $(".tcdPageCode").createPage({
+        pageCount:6,
+        current:1,
+        backFn:function(p){
+            console.log(p);
+        }
+    });
+    function isIE() { //ie?
+        if (!!window.ActiveXObject || "ActiveXObject" in window)
+        {//是ie
+            $(".banner").empty();
+            $(".banner").append('  <img src="images/banner.png" alt="">')
+        }
+        else{
+//不是ie
+        }
+
+    }
+    isIE();
+
+    //汉堡包点击
+    $(".humbuger").click(function () {
+        $(".humbuger .div").slideToggle()
+    })
+    $(function () {
+        var scHeight=$(window).height();
+        $(".banner").css("height",scHeight)
+    })
+</script>
+</html>
